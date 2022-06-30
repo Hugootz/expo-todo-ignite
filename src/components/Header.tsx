@@ -1,8 +1,8 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
-import { getStatusBarHeight } from 'react-native-iphone-x-helper';
+import React from "react";
+import { View, Text, StyleSheet, Image } from "react-native";
+import { getStatusBarHeight } from "react-native-iphone-x-helper";
 
-import logoImg from '../assets/images/logo/logo.png';
+import logoImg from "../assets/images/logo/logo.png";
 
 interface HeaderProps {
   tasksCounter: number;
@@ -10,6 +10,7 @@ interface HeaderProps {
 
 export function Header({ tasksCounter }: HeaderProps) {
   // const tasksCounterText = TODO render 'tarefa' if tasksCounter equals 1, otherwise render 'tarefas'
+  const tasksCounterText = tasksCounter === 1 ? "tarefa" : "tarefas";
 
   return (
     <View style={styles.container}>
@@ -17,7 +18,11 @@ export function Header({ tasksCounter }: HeaderProps) {
 
       <View style={styles.tasks}>
         <Text style={styles.tasksCounter}>Você tem </Text>
-        {/* <Text style={styles.tasksCounterBold}>{tasksCounter} {tasksCounterText}</Text> */}
+        {
+          <Text style={styles.tasksCounterBold}>
+            {tasksCounter} {tasksCounterText}
+          </Text>
+        }
       </View>
     </View>
   );
@@ -28,21 +33,21 @@ const styles = StyleSheet.create({
     paddingTop: getStatusBarHeight(true) + 16,
     paddingHorizontal: 24,
     paddingBottom: 60,
-    backgroundColor: '#8257E5',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    flexDirection: 'row',
+    backgroundColor: "#8257E5",
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexDirection: "row",
   },
   tasks: {
-    alignItems: 'center',
-    flexDirection: 'row',
+    alignItems: "center",
+    flexDirection: "row",
   },
   tasksCounter: {
     fontSize: 15,
-    color: '#FFF',
+    color: "#FFF",
   },
   tasksCounterBold: {
     fontSize: 15,
-    color: '#FFF',
+    color: "#FFF",
   },
 });
