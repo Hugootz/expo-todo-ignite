@@ -18,6 +18,16 @@ export function Home() {
   }
 
   function handleToggleTaskDone(id: number) {
+    const newArray = tasks.map((task) => {
+      if (task.id === id) {
+        return {
+          ...task,
+          done: !task.done,
+        };
+      }
+      return task;
+    });
+
     const updatedTasks = tasks.map((task) => ({ ...task }));
     const foundItem = updatedTasks.find((item) => item.id === id);
     if (!foundItem) return;
